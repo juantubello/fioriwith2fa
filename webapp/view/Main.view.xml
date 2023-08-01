@@ -1,11 +1,69 @@
-<mvc:View controllerName="fiori.cap.fioriwithcapp.controller.Main"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m"  xmlns:html="http://www.w3.org/1999/xhtml" xmlns:core="sap.ui.core">
-    <Page id="page" title="{i18n>title}">
+<mvc:View
+    controllerName="fiori.cap.fioriwithcapp.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:core="sap.ui.core"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
         <content>
-        	<VBox id="vbox" class="sapUiMediumMargin">
-        <!-- <Image id="QR" src="{QRModel>/image}"/> -->
-        	<core:HTML id="idHTMLContent"/>
+            <VBox
+                id="vbox"
+                class="sapUiMediumMargin"
+            >
+                <Label
+                    id="l-firsttime"
+                    text="Usuario ingresa por primera vez"
+                    labelFor="inputText"
+                />
+                <Switch
+                    id="switch"
+                    state="true"
+                    customTextOn="Si"
+                    customTextOff="No"
+                    change="onChange"
+                >
+                    <layoutData>
+                        <FlexItemData
+                            id="fflex"
+                            growFactor="8"
+                        />
+                    </layoutData>
+                </Switch>
+                <!-- <Label id="secret" text="Clave secreta de cifrado: {QRModel>/secret}" /> -->
+                <Label
+                    id="l-qr-desc"
+                    text="Escaneé el siguiente código o copie la clave en una aplicación de autenticación. Ej Microsoft Authenticator, Google Authenticator, Authy."
+                    labelFor="inputText"
+                />
+                <core:HTML id="idHTMLContent" />
+            </VBox>
+            <VBox
+                id="vbox2"
+                class="sapUiMediumMargin"
+            >
+                <Label
+                    id="l-token"
+                    text="Verificar Token"
+                    labelFor="inputText"
+                    visible="false"
+                />
+                <Input
+                    id="inputText"
+                    placeholder="Ingrese el token"
+                    class="sapUiSmallMarginBottom"
+                    visible="false"
+                />
+                <Button
+                    id="b-btn-token"
+                    text="Verificar"
+                    press="onPress"
+                    visible="false"
+                />
             </VBox>
         </content>
     </Page>
